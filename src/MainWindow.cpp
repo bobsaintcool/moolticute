@@ -484,6 +484,7 @@ void MainWindow::on_pushButtonSettingsReset_clicked()
 
     ui->comboBoxKnock->setCurrentIndex(wsClient->get_knockSensitivity());
 
+
     ui->pushButtonSettingsReset->setVisible(false);
     ui->pushButtonSettingsSave->setVisible(false);
 }
@@ -501,7 +502,14 @@ void MainWindow::on_pushButtonSettingsSave_clicked()
                      { "tutorial_enabled", ui->checkBoxTuto->isChecked() },
                      { "screen_brightness", ui->comboBoxScreenBrightness->currentData().toInt() },
                      { "knock_enabled", ui->checkBoxKnock->isChecked() },
-                     { "knock_sensitivity", ui->comboBoxKnock->currentData().toInt() }};
+                     { "knock_sensitivity", ui->comboBoxKnock->currentData().toInt() },
+                     { "key_after_login_enabled", ui->checkBoxSendAfterLogin->isChecked() },
+                     { "key_after_login", ui->comboBoxLoginOutput->currentIndex() },
+                     { "key_after_pass_enabled", ui->checkBoxSendAfterPassword->isChecked() },
+                     { "key_after_pass",ui->comboBoxPasswordOutput->value() },
+                     { "delay_after_key_enabled", ui->checkBoxSlowHost->isChecked() },
+                     { "delay_after_key",ui->spinBoxInputDelayAfterKeyPressed->value() },
+                    };
 
     wsClient->sendJsonData({{ "msg", "param_set" }, { "data", o }});
 }
