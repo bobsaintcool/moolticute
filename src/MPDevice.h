@@ -160,6 +160,9 @@ private:
                        std::function<void(int total, int current)> cbProgress,
                        const QByteArray &data, bool &done);
 
+    void updateParam(quint8 param, bool en);
+    void updateParam(quint8 param, int val);
+
     //timer that asks status
     QTimer *statusTimer = nullptr;
 
