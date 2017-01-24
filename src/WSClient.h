@@ -26,7 +26,12 @@ class WSClient: public QObject
     QT_WRITABLE_PROPERTY(bool, knockEnabled)
     QT_WRITABLE_PROPERTY(int, knockSensitivity)
     QT_WRITABLE_PROPERTY(bool, memMgmtMode)
-
+    QT_WRITABLE_PROPERTY(bool, keyAfterLoginSendEnable)
+    QT_WRITABLE_PROPERTY(int, keyAfterLoginSend)
+    QT_WRITABLE_PROPERTY(bool, keyAfterPassSendEnable)
+    QT_WRITABLE_PROPERTY(int, keyAfterPassSend)
+    QT_WRITABLE_PROPERTY(bool, delayAfterKeyEntryEnable)
+    QT_WRITABLE_PROPERTY(int, delayAfterKeyEntry)
     QT_WRITABLE_PROPERTY(Common::MPHwVersion, mpHwVersion)
 
 public:

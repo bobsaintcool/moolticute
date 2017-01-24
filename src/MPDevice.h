@@ -41,22 +41,34 @@ class MPDevice: public QObject
     Q_OBJECT
     QT_WRITABLE_PROPERTY(Common::MPStatus, status)
     QT_WRITABLE_PROPERTY(int, keyboardLayout)
+    QT_WRITABLE_PROPERTY(int, userInteractionTimeout)
     QT_WRITABLE_PROPERTY(bool, lockTimeoutEnabled)
     QT_WRITABLE_PROPERTY(int, lockTimeout)
-    QT_WRITABLE_PROPERTY(bool, screensaver)
-    QT_WRITABLE_PROPERTY(bool, userRequestCancel)
-    QT_WRITABLE_PROPERTY(int, userInteractionTimeout)
-    QT_WRITABLE_PROPERTY(bool, flashScreen)
+
     QT_WRITABLE_PROPERTY(bool, offlineMode)
+    QT_WRITABLE_PROPERTY(bool, screensaver)
+
+    QT_WRITABLE_PROPERTY(bool, flashScreen)
+    QT_WRITABLE_PROPERTY(bool, userRequestCancel)
     QT_WRITABLE_PROPERTY(bool, tutorialEnabled)
-    QT_WRITABLE_PROPERTY(bool, memMgmtMode)
-    QT_WRITABLE_PROPERTY(int, flashMbSize)
-    QT_WRITABLE_PROPERTY(QString, hwVersion)
+
+    QT_WRITABLE_PROPERTY(bool, keyAfterLoginSendEnable)
+    QT_WRITABLE_PROPERTY(int, keyAfterLoginSend)
+    QT_WRITABLE_PROPERTY(bool, keyAfterPassSendEnable)
+    QT_WRITABLE_PROPERTY(int, keyAfterPassSend)
+    QT_WRITABLE_PROPERTY(bool, delayAfterKeyEntryEnable)
+    QT_WRITABLE_PROPERTY(int, delayAfterKeyEntry)
 
     //MP Mini only
     QT_WRITABLE_PROPERTY(int, screenBrightness) //51-20%, 89-35%, 128-50%, 166-65%, 204-80%, 255-100%
     QT_WRITABLE_PROPERTY(bool, knockEnabled)
     QT_WRITABLE_PROPERTY(int, knockSensitivity) // 0-low, 1-medium, 2-high
+
+
+    QT_WRITABLE_PROPERTY(bool, memMgmtMode)
+    QT_WRITABLE_PROPERTY(int, flashMbSize)
+    QT_WRITABLE_PROPERTY(QString, hwVersion)
+
 
 public:
     MPDevice(QObject *parent);
@@ -75,6 +87,12 @@ public:
     void updateFlashScreen(bool en);
     void updateOfflineMode(bool en);
     void updateTutorialEnabled(bool en);
+    void updateKeyAfterLoginSendEnable(bool en);
+    void updateKeyAfterLoginSend(int value);
+    void updateKeyAfterPassSendEnable(bool en);
+    void updateKeyAfterPassSend(int value);
+    void updateDelayAfterKeyEntryEnable(bool en);
+    void updateDelayAfterKeyEntry(int val);
 
     //MP Mini only
     void updateScreenBrightness(int bval); //51-20%, 89-35%, 128-50%, 166-65%, 204-80%, 255-100%
